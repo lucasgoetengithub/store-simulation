@@ -1,0 +1,21 @@
+Iniciar zookeeper --- zookeeper-server-start.bat c:\kafka\config\zookeeper.properties
+
+Iniciar kafka --- kafka-server-start.bat c:\kafka\config\server.properties
+
+Criar topicos --- kafka-topics --bootstrap-server localhost:9092 --create --topic teste
+
+Lista os topicos --- kafka-topics --bootstrap-server localhost:9092 --list
+
+Manda mensagens --- kafka-console-producer --broker-list localhost:9092 --topic teste
+
+Receber mensagem ---  kafka-console-consumer --bootstrap-server localhost:9092 --topic teste
+
+Receber mensagem desde o inicio --- kafka-console-consumer --bootstrap-server localhost:9092 --topic teste --from-beginning
+
+Deletar topico --- kafka-topics --bootstrap-server localhost:9092 --delete --topic teste
+obs: após apagar os topicos limpar as pastas Data do kafka
+
+Mensagem com chave --- kafka-console-producer --broker-list localhost:9092 --topic teste --property "parse.keystrue" --property "key.separator=,"
+
+Receber mensagem com chave --- kafka-console-consumer --bootstrap-server localhost:9092 --topic teste --property "print.key=true" --property "key.separator=," --group grupo1
+
